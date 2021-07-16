@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  next-store-api:
+    image: quochuydev/next-store-api
+    container_name: next-store-api
+    ports:
+      - 4000:4000
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URL=mongodb://db:27017/next-store-api
+    volumes:
+      - .:/app
+    restart: always
+    depends_on:
+      - db
+
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
