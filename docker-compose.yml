@@ -4,6 +4,7 @@ services:
   next-store-api:
     image: quochuydev/next-store-api
     container_name: next-store-api
+    build: .
     ports:
       - 5000:4000
     environment:
@@ -11,6 +12,7 @@ services:
       # - MONGODB_URL=mongodb://db:27017/next-store-api
     volumes:
       - .:/app
+      - /app/node_modules
     restart: always
     # depends_on:
     #   - db
